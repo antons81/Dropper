@@ -269,6 +269,7 @@ open func show(_ options: Alignment, position: Position = .bottom, button: UIBut
         switch options { // Aligns the view vertically to the button
         case .left:
             self.frame.origin.x = rootView.frame.origin.x
+            self.frame.size.width = rootView.frame.size.width
         case .right:
             self.frame.origin.x = button.frame.origin.x + button.frame.width
         case .center:
