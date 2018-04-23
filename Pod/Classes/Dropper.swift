@@ -195,7 +195,7 @@ open class Dropper: UIView {
     // MARK: - Init
     public init(x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat) {
         super.init(frame: CGRect(x: x, y: y, width: width, height: height))
-        TableMenu.rowHeight = 50
+        TableMenu.rowHeight = 44
         TableMenu.layer.borderColor = UIColor.lightGray.cgColor
         TableMenu.layer.borderWidth = 1
         self.superview?.addSubview(self)
@@ -234,6 +234,41 @@ open class Dropper: UIView {
         switch options { // Aligns the view vertically to the button
         case .left:
             self.frame.origin.x = button.frame.origin.x
+        case .right:
+            self.frame.origin.x = button.frame.origin.x + button.frame.width
+        case .center:
+            self.frame.origin.x = button.frame.origin.x + (button.frame.width - self.frame.width)/2
+        }
+        
+        switch position { // Aligns the view Horizontally to the button
+        case .top:
+            self.frame.origin.y = button.frame.origin.y - height - spacing
+        case .bottom:
+            self.frame.origin.y = button.frame.origin.y + button.frame.height + spacing
+        }
+    
+        if (!self.isHidden) {
+            self.addSubview(TableMenu)
+            if let buttonRoot = findButtonFromSubviews((button.superview?.subviews)!, button: button) {
+                buttonRoot.superview?.addSubview(self)
+            } else {
+                if let rootView = root {
+                    rootView.addSubview(self)
+                }
+            }
+        } else {
+            self.TableMenu.isHidden = false
+            self.isHidden = false
+        }
+        status = .displayed
+    }
+	
+open func show(_ options: Alignment, position: Position = .bottom, button: UIButton, rootView: UIView? = nil) {
+        refreshHeight()
+    
+        switch options { // Aligns the view vertically to the button
+        case .left:
+            self.frame.origin.x = rootView.frame.origin.x
         case .right:
             self.frame.origin.x = button.frame.origin.x + button.frame.width
         case .center:
