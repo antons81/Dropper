@@ -46,7 +46,7 @@ internal class DropperCell: UITableViewCell {
             addSubview(textItem)
         }
         
-        addBottomBorder()
+        //addBottomBorder()
     }
     
     fileprivate func addBottomBorder() {
