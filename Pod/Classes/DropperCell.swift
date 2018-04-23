@@ -40,7 +40,7 @@ internal class DropperCell: UITableViewCell {
             addSubview(imageItem)
         case .text:
             textItem.frame = CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height)
-            textItem.textAlignment = .center
+            textItem.textAlignment = .left
             textItem.adjustsFontSizeToFitWidth = true
             textItem.numberOfLines = 0
             addSubview(textItem)
