@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "Dropper"
-  s.version          = "2.7.6"
+  s.version          = "2.7.6.1"
   s.summary          = "Customizable Swift Dropdown Menu "
 
 # This description is used to generate tags and improve search results.
@@ -24,7 +24,7 @@ Highly customizable Swift Dropdown Menu. Easy to use and to set up.
   # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
   s.author           = { "kirkbyo" => "ozzie@kirkbyo.com" }
-  s.source           = { :git => "https://github.com/kirkbyo/Dropper.git", :tag => s.version.to_s }
+  s.source           = { :git => "https://github.com/antons81/Dropper.git", :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/kirkbyo_'
 
   s.platform     = :ios, '8.0'
